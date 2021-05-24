@@ -1,0 +1,87 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: message-distributor
+  instance:
+    name: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  profiles:
+    - app-dev-1
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+
+---
+
+server:
+  port: 8086
+spring:
+  application:
+    name: message-distributor
+  instance:
+    name: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  profiles:
+    - app-dev-2
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+
+---
+
+server:
+  port: 8087
+spring:
+  application:
+    name: message-distributor
+    instance:
+      name: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  profiles:
+    - app-dev-3
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+
+---
+
+server:
+  port: 8080
+spring:
+  application:
+    name: visa-connector
+  instance:
+    name: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  profiles:
+    - visa-connector
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+
+
+---
+
+server:
+  port: 8081
+spring:
+  application:
+    name: visa-connector
+  instance:
+    name: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  profiles:
+    - visa-connector-1
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181
+
+---
+server:
+  port: 8082
+spring:
+  application:
+    name: visa-connector
+  instance:
+    name: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  profiles:
+    - visa-connector-2
+  cloud:
+    zookeeper:
+      connect-string: 192.168.99.100:2181

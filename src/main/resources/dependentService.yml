@@ -1,0 +1,20 @@
+profile: app-dev-1
+serverPort: 7000
+dependentService:
+  - serviceName: visa-connector
+    route: distributor.test
+    isServer: true
+    isIn: true
+    isOut: true
+
+
+---
+
+profile: visa-connector-1
+serverPort: 7001
+dependentService:
+  - serviceName: message-distributor
+    route: connector.test
+    isServer: true
+    isIn: true
+    isOut: true
